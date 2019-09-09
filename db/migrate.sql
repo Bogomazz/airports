@@ -18,7 +18,7 @@ CREATE TABLE airports (
 ) engine=innodb default charset=utf8mb4;
 
 LOAD DATA LOCAL
-    INFILE '/Users/aboho/Desktop/airports-test/db/airports.txt'
+    INFILE './airports.txt'
     REPLACE INTO TABLE airports
     FIELDS ESCAPED BY '\"'
     TERMINATED BY ','

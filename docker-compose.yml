@@ -5,13 +5,13 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-      - ./db:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${SQLPASS}
       MYSQL_DATABASE: ${SQLDB}
       MYSQL_USER: ${SQLUSER}
     ports:
-      - '3307:3306'
+      - '3306:3306'
 
   api:
     build: ./api
@@ -28,7 +28,7 @@ services:
   client:
     build: ./client
     ports:
-      - "8083:80"
+      - "80:80"
 
 volumes:
   db_data:

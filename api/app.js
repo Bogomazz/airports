@@ -3,6 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const errorHandler = require('./utils/errorHandler');
 
 require('dotenv').config();
 
@@ -25,17 +26,6 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  const error = {
-    message: err.message,
-    status: err.status || 500,
-    error: req.app.get('env') === 'development' ? err : {}
-  };
-
-  // render the error page
-  res.status(err.status || 500);
-  res.json(error);
-});
+app.use(errorHandler);
 
 module.exports = app;

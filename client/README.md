@@ -1,10 +1,6 @@
 # airport-client
 
 ## Application available [here](http://34.245.192.86/)
-## For production use:
-* Add error handling
-* Design should be improved :)
-* Increase number of tests
 
 ## Project setup
 ```
