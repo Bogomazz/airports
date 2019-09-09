@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SQLPASS}
+      MYSQL_DATABASE: ${SQLDB}
+      MYSQL_USER: ${SQLUSER}
+    ports:
+      - '3307:3306'
+
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      SQLPASS: ${SQLPASS}
+      SQLDB: ${SQLDB}
+      SQLUSER: ${SQLUSER}
+      SQLHOST: db
+
+  client:
+    build: ./client
+    ports:
+      - "8083:80"
+
+volumes:
+  db_data:
