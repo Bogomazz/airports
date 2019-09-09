@@ -9,17 +9,17 @@
 </template>
 
 <script>
-    export default {
-        name: "Search",
-        data: () => ({
-            query: ''
-        }),
-        methods: {
-            emitSearch() {
-                this.$emit('search', this.query);
-            }
-        }
+  export default {
+    name: "Search",
+    data: () => ({
+      query: ''
+    }),
+    methods: {
+      emitSearch() {
+        this.$emit('search', this.query);
+      }
     }
+  }
 </script>
 
 <style scoped>
@@ -28,6 +28,7 @@
         justify-content: center;
         align-items: center;
     }
+
     .search__input {
         width: 40%;
     }

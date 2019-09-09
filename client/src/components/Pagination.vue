@@ -16,26 +16,27 @@
 </template>
 
 <script>
-    import {ITEMS_PER_PAGE} from "../constants"
-    export default {
-        name: "Pagination",
-        props: {
-            page: Number,
-            itemsPerPage: Number,
-            totalNumberOfPages: Number
-        },
-        data: ()=> ({
-            selectValues: ITEMS_PER_PAGE,
-        }),
-        methods: {
-          prevEmit() {
-            this.$emit('pageChange', this.page-1)
-          },
-          nextEmit() {
-            this.$emit('pageChange', this.page+1)
-          }
-        }
+  import {ITEMS_PER_PAGE} from "../constants"
+
+  export default {
+    name: "Pagination",
+    props: {
+      page: Number,
+      itemsPerPage: Number,
+      totalNumberOfPages: Number
+    },
+    data: () => ({
+      selectValues: ITEMS_PER_PAGE,
+    }),
+    methods: {
+      prevEmit() {
+        this.$emit('pageChange', this.page - 1)
+      },
+      nextEmit() {
+        this.$emit('pageChange', this.page + 1)
+      }
     }
+  }
 </script>
 
 <style scoped>
@@ -43,6 +44,7 @@
         display: flex;
         justify-content: flex-end;
     }
+
     .paginator__page-size-input {
         width: 3rem;
     }

@@ -29,33 +29,30 @@
 </template>
 
 <script>
-    import Pagination from "./Pagination";
-    export default {
-        name: "CustomTable",
-        components: {Pagination},
-        props: {
-            airports: {
-                type: Array,
-                default: () => []
-            },
-            paginationState: {
-              page: Number,
-              itemsPerPage: Number,
-              totalNumberOfPages: Number
-            }
-        },
-        filters: {
-            decimal: (value) => {
-                value = parseFloat(value);
-                if (!value) {
-                    return 0;
-                }
-                return value.toPrecision(3);
-            }
-        },
-    }
+  import Pagination from "./Pagination";
+
+  export default {
+    name: "CustomTable",
+    components: {Pagination},
+    props: {
+      airports: {
+        type: Array,
+        default: () => []
+      },
+      paginationState: {
+        page: Number,
+        itemsPerPage: Number,
+        totalNumberOfPages: Number
+      }
+    },
+    filters: {
+      decimal: (value) => {
+        value = parseFloat(value);
+        if (!value) {
+          return 0;
+        }
+        return value.toPrecision(3);
+      }
+    },
+  }
 </script>
-
-<style scoped>
-
-</style>
