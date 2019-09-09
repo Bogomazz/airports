@@ -1,3 +1,4 @@
+SET character_set_client = utf8mb4
 DROP TABLE IF EXISTS airports;
 CREATE TABLE airports (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -14,7 +15,7 @@ CREATE TABLE airports (
 	tz_id VARCHAR(255),
 	type VARCHAR(255),
 	source VARCHAR(255)
-);
+) engine=innodb default charset=utf8mb4;
 
 LOAD DATA LOCAL
     INFILE '/Users/aboho/Desktop/airports-test/db/airports.txt'
